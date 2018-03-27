@@ -41,7 +41,7 @@ export default {
 #mainNav {
   position: absolute;
   border-bottom: 1px solid #e9ecef;
-  background-color: rgba(255,255,255,0);
+  background-color: rgba(255,255,255,1);
 }
 
 #mainNav .navbar-brand {

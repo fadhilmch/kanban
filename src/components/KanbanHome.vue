@@ -3,10 +3,10 @@
 <navbar @openmoda='openModal'></navbar>
 <div class='main'>
 <div class='row'>
-  <category-card :tasks="this.$store.state.taskBackLog" :title = "'Back-Log'"></category-card>
-  <category-card :tasks="this.$store.state.taskTodo" :title = "'To Do'"></category-card>
-  <category-card :tasks="this.$store.state.taskDoing" :title = "'Doing'"></category-card>
-  <category-card :tasks="this.$store.state.taskDone" :title = "'Done'"></category-card>
+  <category-card :color="'blue'" :tasks="this.$store.state.taskBackLog" :title = "'Back-Log'"></category-card>
+  <category-card :color="'red'" :tasks="this.$store.state.taskTodo" :title = "'To Do'"></category-card>
+  <category-card :color="'yellow'" :tasks="this.$store.state.taskDoing" :title = "'Doing'"></category-card>
+  <category-card :color="'green'" :tasks="this.$store.state.taskDone" :title = "'Done'"></category-card>
 </div>
 </div>
 <add-task></add-task>

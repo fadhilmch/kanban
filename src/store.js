@@ -53,6 +53,7 @@ export default new Vuex.Store({
           obj.id = val.key
           obj.title = val.val().title
           obj.description = val.val().description
+          obj.assigned = val.val().assigned
           obj.status = val.val().status
           allTasks.push(obj)
         })

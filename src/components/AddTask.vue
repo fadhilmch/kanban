@@ -5,7 +5,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Add Task</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button @click='close' type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -16,6 +16,10 @@
                 <input type="text" class="form-control" id="task-title-form" v-model="newTask.title">
               </div>
               <div class="form-group">
+                <label for="task-assigned" class="col-form-label">Assigned To:</label>
+                <input type="text" class="form-control" id="task-assigned-form" v-model="newTask.assigned">
+              </div>
+              <div class="form-group">
                 <label for="task-description" class="col-form-label">Description:</label>
                 <textarea class="form-control" id="task-description-from" v-model="newTask.description"></textarea>
               </div>
@@ -23,7 +27,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary" @click="addTask">Save</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" @click="addTask">Save</button>
           </div>
         </div>
       </div>
@@ -37,18 +41,28 @@ export default {
     return {
       newTask: {
         title: '',
-        description: ''
+        description: '',
+        assigned: ''
       }
     }
   },
   methods: {
     addTask: function () {
-      $('#addTaskModal').modal('hide')
+      // $('#addTaskModal').modal('hide')
       this.$store.dispatch('addNewTask', {
         title: this.newTask.title,
         description: this.newTask.description,
+        assigned: this.newTask.assigned,
         status: 'backlog'
       })
+      this.newTask.title = ''
+      this.newTask.description = ''
+      this.newTask.assigned = ''
+    },
+    close: function () {
+      this.newTask.title = ''
+      this.newTask.description = ''
+      this.newTask.assigned = ''
     }
   }
 }
